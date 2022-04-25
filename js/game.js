@@ -16,7 +16,7 @@ class Game {
   start() {
     this.player = new OhIlNam(this);
     this.control = new Controls(this);
-    this.glasses = new BreakGlass(this);
+    this.glasses = new Paths(this);
     this.glasses.arrayPath();
     this.glasses.random();
     this.control.keyboardEvents();
@@ -26,8 +26,17 @@ class Game {
   }
 
   update() {
+    this.drawGameBoard();
+    //this.player.x this.player.y;
+    //getCurrentPlayerPos 
+    //perguntar ao path se meu player pisou no vidro e retornar se pisou no vidro que parte
+    //
+  }
+
+  drawGameBoard() {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.player.draw();
+    this.glasses.draw();
 /*     this.drawScores(); */
   }
 

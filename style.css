@@ -9,7 +9,8 @@ body {
 #canvas {
   margin-top: 50px;
   box-shadow: white 0px 19px 38px, white 0px 15px 12px;
-  /*  background-image: url(/docs/imgs/blabla.jpg); */
+  background-image: url(/docs/imgs/Untitled.png);
+  background-size: 350px;
 }
 
 .main-div {

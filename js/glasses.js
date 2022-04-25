@@ -1,10 +1,12 @@
-class BreakGlass {
+class Paths {
   constructor(game) {
     this.game = game;
     this.width = 50;
     this.height = 40;
     this.path = null;
   }
+  
+  //
 
   arrayPath() {
     this.path = [
@@ -51,17 +53,18 @@ class BreakGlass {
     ];
   }
 
+  isPosBreakableGlass(x, y) {
+    //Vereficar se x e y pertence a alguma posicao do path que é breakable glass
+    //if true ou false
+  }
+
   random() {
     this.path.forEach((pair) => {
       let randomNumber = Math.round(Math.random());
       pair[randomNumber].isBreakable = true;
-      this.game.ctx.fillStyle = "red";
-      this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
     });
   }
 
   draw() {
-    this.game.ctx.fillStyle = 'red';
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }

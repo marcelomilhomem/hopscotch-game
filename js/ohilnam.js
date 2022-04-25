@@ -7,11 +7,13 @@ class OhIlNam {
     this.height = 30;
     this.lifes = 3;
   }
+
   draw() {
     this.game.ctx.fillStyle = "red";
     this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
+  
   moveLeft() {
     this.x -= 60;
     this.y -= 50;
@@ -29,6 +31,14 @@ class OhIlNam {
   beginRight() {
     this.x += 30;
     this.y -= 40;
+  }
+
+  moveUpLeft() {
+    this.y -=50;
+  }
+
+  moveUpRight() {
+    this.y -=50;
   }
 
   loseLife(glasses) {
