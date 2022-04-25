@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&family=Bellefair&family=Dangrek&family=Montserrat:ital,wght@1,100&display=swap');
+
+
+body {
+    padding: 0;
+    text-align: center;
+    /*background-image: url(/docs/imgs/squid-game-08-920x518.jpg);*/
+  }
+
+  #canvas {
+      margin-top: 50px;
+  }
+
+  .main-div {
+      display: flex;
+      justify-content: space-evenly;
+  }
+  
+
+  .rules {
+      background-color: aqua;
+      /*background: url(/docs/imgs/logo.jph.jpg);*/
+      margin-top: 100px;
+      text-align: center;
+      max-width: 400px;
+  }
+
+  .english {
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  p {
+      margin-top: 100px;
+  }

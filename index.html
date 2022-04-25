@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="rules">
+        <span>いらっしゃいませ</span>
+        <h1>石けり遊び</h1>
+        <p>あなたが始めるとき、戻ることはありません。</p>
+        <p>
+          あなたは2つのガラスの正方形がある橋を通り抜ける必要があります 並んで。
+          1つのガラスの正方形が強化されてあなたを保持している間、
+          その横の正方形は壊れやすく、あなたの死に落ちます。を選択してください
+          左または右の矢印のある側。
+        </p>
+        <p>幸運を</p>
+      </div>
+      <div>
+        <canvas
+          id="canvas"
+          width="500"
+          height="700"
+          style="border: 1px solid black"
+        ></canvas>
+      </div>
+      <div>
+        <div class="rules english">
+          <span>Welcome</span>
+          <h1>Hopscotch</h1>
+          <p>When you start, there is no going back..</p>
+          <p>
+            You have to jump your way through a bridge that has two glass
+            squares side by side. While one glass square is tempered and will
+            hold you, the square beside it is fragile it falls to your death.
+            Choose the side with the arrows LEFT or RIGHT.
+          </p>
+          <p>Good luck</p>
+        </div>
+      </div>
+    </div>
+    <script src="js/ohilnam.js"></script>
+    <script src="js/glasses.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
