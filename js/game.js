@@ -10,6 +10,7 @@ class Game {
     this.control = null;
     this.intervalId = null;
     this.glasses = null;
+    this.frames = 0;
   }
 
   start() {
@@ -27,5 +28,13 @@ class Game {
   update() {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.player.draw();
+/*     this.drawScores(); */
+  }
+
+  drawScores() {
+/*     let score = Math.floor(this.frames / 60);
+    this.ctx.font = "32px serif";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText(`Score: ${score}`, 100, 30); */
   }
 }

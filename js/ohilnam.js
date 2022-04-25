@@ -5,8 +5,7 @@ class OhIlNam {
     this.y = 600;
     this.width = 40;
     this.height = 30;
-    this.speedX = 0;
-    this.speedY = 0;
+    this.lifes = 3;
   }
   draw() {
     this.game.ctx.fillStyle = "red";
@@ -32,7 +31,6 @@ class OhIlNam {
     this.y -= 40;
   }
 
-  gameOver(fragileGlass) {
-    //
+  loseLife(glasses) {
   }
 }

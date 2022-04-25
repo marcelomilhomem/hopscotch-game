@@ -10,13 +10,15 @@ class Controls {
         case "ArrowLeft":
           if (this.player.x === 260) {
             this.player.moveLeft();
-            console.log("ola");
+          } else if(this.player.x === 230) {
+            this.player.beginLeft();
           }
           break;
         case "ArrowRight":
           if (this.player.x === 200) {
             this.player.moveRight();
-            console.log("tudo bem?");
+          } else if(this.player.x === 230) {
+            this.player.beginRight();
           }
           break;
       }
