@@ -14,10 +14,10 @@ class Controls {
           }
           break;
         case "ArrowRight":
-        if (this.player.x === 200) {
-          this.player.moveRight();
-          console.log("tudo bem?");
-        }
+          if (this.player.x === 200) {
+            this.player.moveRight();
+            console.log("tudo bem?");
+          }
           break;
       }
     });

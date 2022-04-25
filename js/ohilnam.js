@@ -23,13 +23,13 @@ class OhIlNam {
   }
 
   beginLeft() {
-    this.x -=30;
-    this.y -=40;
+    this.x -= 30;
+    this.y -= 40;
   }
 
   beginRight() {
-    this.x +=30;
-    this.y -=40;
+    this.x += 30;
+    this.y -= 40;
   }
 
   gameOver(fragileGlass) {
