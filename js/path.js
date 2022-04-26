@@ -53,11 +53,6 @@ class Paths {
     ];
   }
 
-  isPosBreakableGlass(x, y) {
-    //Vereficar se x e y pertence a alguma posicao do path que é breakable glass
-    //if true ou false
-  }
-
   random() {
     this.path.forEach((pair) => {
       let randomNumber = Math.round(Math.random());

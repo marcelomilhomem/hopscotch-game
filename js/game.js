@@ -9,16 +9,15 @@ class Game {
     this.player = null;
     this.control = null;
     this.intervalId = null;
-    this.glasses = null;
-    this.frames = 0;
+    this.paths = null;
   }
 
   start() {
     this.player = new OhIlNam(this);
     this.control = new Controls(this);
-    this.glasses = new Paths(this);
-    this.glasses.arrayPath();
-    this.glasses.random();
+    this.paths = new Paths(this);
+    this.paths.arrayPath();
+    this.paths.random();
     this.control.keyboardEvents();
     this.intervalId = setInterval(() => {
       this.update();
@@ -26,9 +25,10 @@ class Game {
   }
 
   update() {
-    this.drawGameBoard();
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.player.draw();
     //this.player.x this.player.y;
-    //getCurrentPlayerPos 
+    //getCurrentPlayerPos
     //perguntar ao path se meu player pisou no vidro e retornar se pisou no vidro que parte
     //
   }
@@ -36,12 +36,12 @@ class Game {
   drawGameBoard() {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.player.draw();
-    this.glasses.draw();
-/*     this.drawScores(); */
+    this.paths.draw();
+    /*     this.drawScores(); */
   }
 
   drawScores() {
-/*     let score = Math.floor(this.frames / 60);
+    /*     let score = Math.floor(this.frames / 60);
     this.ctx.font = "32px serif";
     this.ctx.fillStyle = "white";
     this.ctx.fillText(`Score: ${score}`, 100, 30); */
