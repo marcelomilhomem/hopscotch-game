@@ -53,6 +53,7 @@ class Game {
         this.player.y = 600;
       }
     });
+    console.log(this.brokenGlasses);
   }
 
   checkGameOver() {

@@ -3,14 +3,14 @@
 body {
   margin: auto;
   text-align: center;
-  background-image: url(/docs/imgs/logo.jph.jpg);
+  background-image: url(/docs/imgs/imgmoving.jpg);
 }
 
 #canvas {
   margin-top: 50px;
-  box-shadow: white 0px 19px 38px, white 0px 15px 12px; 
+  box-shadow: white 0px 19px 38px, white 0px 15px 12px;
   display: none;
- }
+}
 
 .main-div {
   border: 3px solid white;
@@ -41,17 +41,17 @@ p {
   margin-top: 100px;
 }
 
+#start-screen {
+  width: 500px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
- #start-screen {
-   width: 500px;
-   height: 700px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: black;
- }
-
- #win-screen {
+#win-screen {
   width: 500px;
   height: 700px;
   display: none;
@@ -67,4 +67,8 @@ p {
   justify-content: center;
   align-items: center;
   background-color: black;
+}
+
+.invite-img {
+  max-height: 200px
 }
