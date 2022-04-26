@@ -1,4 +1,4 @@
-class BreakGlass {
+class Paths {
   constructor(game) {
     this.game = game;
     this.width = 50;
@@ -55,13 +55,15 @@ class BreakGlass {
     this.path.forEach((pair) => {
       let randomNumber = Math.round(Math.random());
       pair[randomNumber].isBreakable = true;
-      this.game.ctx.fillStyle = "red";
-      this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
     });
+
+    this.flatglasses = this.path.flat();
   }
 
   draw() {
-    this.game.ctx.fillStyle = 'red';
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.game.ctx.fillStyle = "yellow";
+    this.flatglasses.forEach((glass) => {
+      this.game.ctx.fillRect(glass.x, glass.y, 50, 40);
+    });
   }
 }

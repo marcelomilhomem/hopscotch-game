@@ -3,8 +3,8 @@ class OhIlNam {
     this.game = game;
     this.x = 230;
     this.y = 600;
-    this.width = 40;
-    this.height = 30;
+    this.width = 50;
+    this.height = 40;
     this.lifes = 3;
   }
   draw() {
@@ -23,14 +23,21 @@ class OhIlNam {
 
   beginLeft() {
     this.x -= 30;
-    this.y -= 40;
+    this.y -= 50;
   }
 
   beginRight() {
     this.x += 30;
-    this.y -= 40;
+    this.y -= 50;
   }
 
-  loseLife(glasses) {
+  moveUpLeft() {
+    this.y -= 50;
   }
+
+  moveUpRight() {
+    this.y -= 50;
+  }
+
+  loseLife(glasses) {}
 }
