@@ -11,6 +11,7 @@ class Game {
     this.intervalId = null;
     this.glasses = null;
     this.flatglasses = null;
+    this.countTime = 0;
   }
 
   start() {
@@ -28,13 +29,22 @@ class Game {
     }, 1000 / 60);
   }
 
+  countingSeconds() {
+    let seconds = Math.floor(this.countTime / 60);
+    this.ctx.font = '20px sans-serif';
+    this.ctx.fillStyle = 'white';
+    this.ctx.fillText(`Seconds: ${seconds}`, 10, 30);
+  }
+
   update() {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.glasses.draw();
     this.player.draw();
+    this.countingSeconds();
     this.checkBreakingGlass();
     this.checkGameOver();
     this.checkWin();
+    this.countTime++;
   }
 
   drawScores() {}
