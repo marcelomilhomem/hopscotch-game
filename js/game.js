@@ -10,6 +10,7 @@ class Game {
     this.control = null;
     this.intervalId = null;
     this.glasses = null;
+    this.flatglasses = null;
   }
 
   start() {
@@ -28,31 +29,50 @@ class Game {
 
   update() {
     this.ctx.clearRect(0, 0, this.width, this.height);
-    this.checkBreakingGlass();
     this.glasses.draw();
     this.player.draw();
+    this.checkBreakingGlass();
     this.checkGameOver();
+    this.checkWin();
   }
 
   drawScores() {}
 
   checkBreakingGlass() {
-    this.flatglasses.forEach((glass) => {
+    this.flatglasses.forEach((glass, i, arr) => {
       if (
         glass.x === this.player.x &&
         glass.y === this.player.y &&
         glass.isBreakable
       ) {
-        this.player.lifes -=1;
-        console.log("break")
+        arr.splice(i, 1);
+        this.player.lifes--;
+        this.player.x = 230;
+        this.player.y = 600;
       }
     });
   }
 
   checkGameOver() {
     if (this.player.lifes <= 0) {
+      //console.log('game is over', this.player.lifes)
       this.stop();
     }
+  }
+
+  checkWin() {
+    if (
+      (this.player.x === 200 && this.player.y === 50) ||
+      (this.player.x === 260 && this.player.y === 50)
+    ) {
+      this.win();
+    }
+  }
+
+  win() {
+    clearInterval(this.intervalId);
+    this.ctx.font = "30px Arial";
+    this.ctx.fillText("You win", 10, 50);
   }
 
   stop() {

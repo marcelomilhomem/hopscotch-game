@@ -5,7 +5,8 @@ class OhIlNam {
     this.y = 600;
     this.width = 50;
     this.height = 40;
-    this.lifes = 3;
+    this.lifes = 10;
+    this.img = new Image();
   }
   draw() {
     this.game.ctx.fillStyle = "red";
@@ -38,6 +39,4 @@ class OhIlNam {
   moveUpRight() {
     this.y -= 50;
   }
-
-  loseLife(glasses) {}
 }

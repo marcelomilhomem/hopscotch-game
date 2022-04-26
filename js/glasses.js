@@ -4,6 +4,7 @@ class Paths {
     this.width = 50;
     this.height = 40;
     this.path = null;
+    this.img = new Image();
   }
 
   arrayPath() {
@@ -57,12 +58,12 @@ class Paths {
       pair[randomNumber].isBreakable = true;
     });
 
-    this.flatglasses = this.path.flat();
+    this.game.flatglasses = this.path.flat();
   }
 
   draw() {
     this.game.ctx.fillStyle = "yellow";
-    this.flatglasses.forEach((glass) => {
+    this.game.flatglasses.forEach((glass) => {
       this.game.ctx.fillRect(glass.x, glass.y, 50, 40);
     });
   }
