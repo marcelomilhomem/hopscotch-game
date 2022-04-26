@@ -14,6 +14,7 @@ class Game {
   }
 
   start() {
+    this.canvas.style.display = "flex";
     this.player = new OhIlNam(this);
     this.control = new Controls(this);
     this.glasses = new Paths(this);
@@ -45,6 +46,7 @@ class Game {
         glass.y === this.player.y &&
         glass.isBreakable
       ) {
+        //Make an array and check the future path includes in the brokenGlasses array;
         arr.splice(i, 1);
         this.player.lifes--;
         this.player.x = 230;
