@@ -58,6 +58,7 @@ p {
   justify-content: center;
   align-items: center;
   background-color: black;
+  flex-direction: column;
 }
 
 #loss-screen {
@@ -71,4 +72,8 @@ p {
 
 .invite-img {
   max-height: 200px
+}
+
+h3 {
+  color: white;
 }
