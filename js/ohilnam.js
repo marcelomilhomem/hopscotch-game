@@ -3,14 +3,14 @@ class OhIlNam {
     this.game = game;
     this.x = 230;
     this.y = 600;
-    this.width = 50;
-    this.height = 40;
+    this.width = 40;
+    this.height = 50;
     this.lifes = 10;
     this.img = new Image();
   }
   draw() {
-    this.game.ctx.fillStyle = "red";
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.img.src = '/docs/imgs/squid.jpg';
+    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 
   moveLeft() {

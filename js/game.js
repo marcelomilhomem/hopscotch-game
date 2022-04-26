@@ -68,7 +68,6 @@ class Game {
 
   checkGameOver() {
     if (this.player.lifes <= 0) {
-      //console.log('game is over', this.player.lifes)
       this.stop();
     }
   }

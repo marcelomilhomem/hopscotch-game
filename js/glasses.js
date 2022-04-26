@@ -62,7 +62,7 @@ class Paths {
   }
 
   draw() {
-    this.game.ctx.fillStyle = "yellow";
+    this.game.ctx.fillStyle = "DimGrey";
     this.game.flatglasses.forEach((glass) => {
       this.game.ctx.fillRect(glass.x, glass.y, 50, 40);
     });
