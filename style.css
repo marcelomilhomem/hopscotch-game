@@ -59,3 +59,12 @@ p {
   align-items: center;
   background-color: black;
 }
+
+#loss-screen {
+  width: 500px;
+  height: 700px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}

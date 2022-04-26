@@ -72,15 +72,15 @@ class Game {
   }
 
   win() {
-    clearInterval(this.intervalId);
-    this.ctx.font = "30px Arial";
-    this.ctx.fillText("You win", 10, 50);
+    let winScreen = document.getElementById('win-screen');
+    this.canvas.style.display = "none";
+    winScreen.style.display = "flex";
   }
 
   stop() {
-    clearInterval(this.intervalId);
-    this.ctx.font = "30px Arial";
-    this.ctx.fillText("You lost", 10, 50);
+    let winScreen = document.getElementById('loss-screen');
+    this.canvas.style.display = "none";
+    winScreen.style.display = "flex";
   }
 
   timer() {
