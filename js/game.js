@@ -14,16 +14,19 @@ class Game {
     this.countTime = 0;
     this.imgSquid = new Image();
     this.imgHouse = new Image();
+    /* this.sound = new Audio(); */
   }
 
   drawSquid() {
     this.imgSquid.src = "/docs/imgs/My project (1).png";
-    this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150); 
+    this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150);
     this.imgHouse.src = "/docs/imgs/house.jgp.png";
-    this.ctx.drawImage(this.imgHouse, 205, -20, 100, 150)  
+    this.ctx.drawImage(this.imgHouse, 205, -20, 100, 150);
   }
 
   start() {
+    /* this.sound.src = "/docs/sounds/Squid Game - Pink Soldiers.mp3";
+    this.sound.play(); */
     this.canvas.style.display = "flex";
     this.player = new OhIlNam(this);
     this.control = new Controls(this);
@@ -57,19 +60,24 @@ class Game {
     this.checkGameOver();
     this.checkWin();
     this.countTime++;
+    //this.restart();
   }
 
   checkBreakingGlass() {
-    this.flatglasses.forEach((glass /* , i, arr */) => {
+    this.flatglasses.forEach((glass, i, arr) => {
       if (
         glass.x === this.player.x &&
         glass.y === this.player.y &&
         glass.isBreakable
       ) {
         //Make an array and check the future path includes in the brokenGlasses array;
-        /* arr.splice(i, 1); */
-        this.ctx.fillStyle = "black";
-        this.ctx.fillRect(glass.x, glass.y, 50, 40);
+        //arr.splice(i, 1);
+
+        if(glass.color != "black") {
+          glass.color = "black"
+        }
+
+
         this.player.lifes--;
         this.player.x = 230;
         this.player.y = 600;
@@ -101,8 +109,9 @@ class Game {
   }
 
   stop() {
-    let winScreen = document.getElementById("loss-screen");
+    let lossScreen = document.getElementById("loss-screen");
     this.canvas.style.display = "none";
-    winScreen.style.display = "flex";
+    lossScreen.style.display = "flex";
+    clearInterval(this.intervalId)
   }
 }
