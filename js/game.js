@@ -13,11 +13,14 @@ class Game {
     this.flatglasses = null;
     this.countTime = 0;
     this.imgSquid = new Image();
+    this.imgHouse = new Image();
   }
 
   drawSquid() {
     this.imgSquid.src = "/docs/imgs/My project (1).png";
-    this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150);
+    this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150); 
+    this.imgHouse.src = "/docs/imgs/house.jgp.png";
+    this.ctx.drawImage(this.imgHouse, 205, -20, 100, 150)  
   }
 
   start() {
