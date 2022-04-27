@@ -31,9 +31,10 @@ class Game {
 
   countingSeconds() {
     let seconds = Math.floor(this.countTime / 60);
-    this.ctx.font = '20px';
-    this.ctx.fillStyle = 'white';
-    this.ctx.fillText(`Seconds: ${seconds}`, 10, 30);
+    console.log(seconds);
+    this.ctx.font = "20px sans-serif";
+    this.ctx.fillStyle = "crimson";
+    this.ctx.fillText(`00:${seconds}`, 400, 45);
   }
 
   update() {
@@ -49,14 +50,16 @@ class Game {
   }
 
   checkBreakingGlass() {
-    this.flatglasses.forEach((glass, i, arr) => {
+    this.flatglasses.forEach((glass /* , i, arr */) => {
       if (
         glass.x === this.player.x &&
         glass.y === this.player.y &&
         glass.isBreakable
       ) {
         //Make an array and check the future path includes in the brokenGlasses array;
-        arr.splice(i, 1);
+        /* arr.splice(i, 1); */
+        this.ctx.fillStyle = "black";
+        this.ctx.fillRect(glass.x, glass.y, 50, 40);
         this.player.lifes--;
         this.player.x = 230;
         this.player.y = 600;
@@ -66,6 +69,8 @@ class Game {
 
   checkGameOver() {
     if (this.player.lifes <= 0) {
+      this.stop();
+    } else if (Math.floor(this.countTime / 60) === 60) {
       this.stop();
     }
   }
@@ -80,13 +85,13 @@ class Game {
   }
 
   win() {
-    let winScreen = document.getElementById('win-screen');
+    let winScreen = document.getElementById("win-screen");
     this.canvas.style.display = "none";
     winScreen.style.display = "flex";
   }
 
   stop() {
-    let winScreen = document.getElementById('loss-screen');
+    let winScreen = document.getElementById("loss-screen");
     this.canvas.style.display = "none";
     winScreen.style.display = "flex";
   }
