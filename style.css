@@ -82,3 +82,31 @@ h3 {
   color: white;
   font-size: 20px;
 }
+
+.start-green {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
+}
+
+.start-red {
+  background-color: #B22222;
+  border: none;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-bottom: 200px;
+}
+
+.start-buttons {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
