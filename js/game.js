@@ -12,6 +12,12 @@ class Game {
     this.glasses = null;
     this.flatglasses = null;
     this.countTime = 0;
+    this.imgSquid = new Image();
+  }
+
+  drawSquid() {
+    this.imgSquid.src = "/docs/imgs/My project (1).png";
+    this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150);
   }
 
   start() {
@@ -34,7 +40,7 @@ class Game {
     console.log(seconds);
     this.ctx.font = "20px sans-serif";
     this.ctx.fillStyle = "crimson";
-    this.ctx.fillText(`00:${seconds}`, 400, 45);
+    this.ctx.fillText(`00:${seconds}`, 400, 130);
   }
 
   update() {
@@ -42,6 +48,7 @@ class Game {
     this.glasses.draw();
     this.player.draw();
     this.player.drawLifes();
+    this.drawSquid();
     this.countingSeconds();
     this.checkBreakingGlass();
     this.checkGameOver();
