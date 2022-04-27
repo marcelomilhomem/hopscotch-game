@@ -18,9 +18,9 @@ class Game {
   }
 
   drawSquid() {
-    this.imgSquid.src = "docs/assets/imgs/My project (1).png";
+    this.imgSquid.src = "./docs/assets/imgs/My project (1).png";
     this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150);
-    this.imgHouse.src = "docs/assets/imgs/house.jgp.png";
+    this.imgHouse.src = "./docs/assets/imgs/house.jgp.png";
     this.ctx.drawImage(this.imgHouse, 205, -20, 100, 150);
   }
 

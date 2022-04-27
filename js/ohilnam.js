@@ -10,12 +10,12 @@ class OhIlNam {
     this.img2 = new Image();
   }
   draw() {
-    this.img.src = "docs/assets/imgs/tryimg.jgp.PNG";
+    this.img.src = "./docs/assets/imgs/tryimg.jgp.PNG";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 
   drawLifes() {
-    this.img2.src = "docs/assets/imgs/squid.jpg";
+    this.img2.src = "./docs/assets/imgs/squid.jpg";
     switch (this.lifes) {
       case 4:
         this.game.ctx.drawImage(this.img2, 20, 630, 35, 40);
