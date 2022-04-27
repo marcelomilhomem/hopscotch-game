@@ -14,39 +14,32 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Babylonica&family=Bellefair&family=Dangrek&family=Montserrat:ital,wght@1,100&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div class="main-div">
       <div class="rules japonese">
         <h1>石けり遊び</h1>
-        <p>あなたが始めるとき、戻ることはありません。</p>
         <p>
-          あなたは2つのガラスの正方形がある橋を通り抜ける必要があります 並んで。
-          1つのガラスの正方形が強化されてあなたを保持している間、
-          その横の正方形は壊れやすく、あなたの死に落ちます。を選択してください
-          左または右の矢印のある側。
+          秒があります。
+          <hr>
+          つのガラスの正方形が並んでいる橋を飛び越えてください。 つのガラスの正方形が強化されて勝利につながりますが、横の正方形はあなたが死ぬまで1つの命を失うことになります。
         </p>
-        <p>幸運を</p>
+        <p>キーボード</p>
+        <h1>← 左</h1><h1>↑ 上</h1><h1>→ 右
+        </h1>
       </div>
       <div id="start-screen">
         <img
           class="invite-img"
-          src="/docs/imgs/invite.jpg"
+          src="docs/assets/imgs/invite.jpg"
           alt="invite-img-squid-game"
         />
         <button type="button" id="start-button">8651-80045</button>
       </div>
       <div id="win-screen">
         <h3>You won</h3>
-        <button type="button" id="win-button">Reward</button>
+        <button type="button" id="win-button">Play Again</button>
       </div>
-     <!--  <div id="money-screen">
-        <p class="money">1,000,000,000</p>
-      </div> -->
       <div id="loss-screen">
         <h3>You lost</h3>
         <button type="button" id="loss-button">Try again. 8651-80045</button>
@@ -56,21 +49,22 @@
           id="canvas"
           width="500"
           height="700"
-          style="border: 1px solid black"
+          style="border: 1px solid LightGoldenrodYellow"
         >
           <p id="countdown">2:00</p>
         </canvas>
       </div>
       <div class="rules english">
         <h1>Hopscotch</h1>
-        <p>You have 60seconds..</p>
         <p>
-          You have to jump your way through a bridge that has two glass squares
-          side by side. While one glass square is tempered and will hold you,
-          the square beside it is fragile it falls to your death. Choose the
-          side with the arrows LEFT/RIGHT/UP.
+          You have 60seconds..
+          <hr>
+          Jump your way through a bridge that has two glass squares
+          side by side. While one glass square is tempered and will lead you to victory,
+          the square beside will make you lose one life till your death. 
         </p>
-        <p>Good luck</p>
+        <p>Keyboard</p>
+        <h1>← LEFT</h1><h1>↑ UP</h1><h1>→ RIGHT</h1>
       </div>
     </div>
     <script src="js/ohilnam.js"></script>

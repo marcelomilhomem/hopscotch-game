@@ -18,9 +18,9 @@ class Game {
   }
 
   drawSquid() {
-    this.imgSquid.src = "/docs/imgs/My project (1).png";
+    this.imgSquid.src = "docs/assets/imgs/My project (1).png";
     this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150);
-    this.imgHouse.src = "/docs/imgs/house.jgp.png";
+    this.imgHouse.src = "docs/assets/imgs/house.jgp.png";
     this.ctx.drawImage(this.imgHouse, 205, -20, 100, 150);
   }
 
@@ -106,6 +106,7 @@ class Game {
     let winScreen = document.getElementById("win-screen");
     this.canvas.style.display = "none";
     winScreen.style.display = "flex";
+    clearInterval(this.intervalId)
   }
 
   stop() {
