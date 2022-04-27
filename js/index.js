@@ -1,9 +1,10 @@
-let startScreen = document.getElementById('start-screen');
-let winScreen = document.getElementById('win-screen');
+let startScreen = document.getElementById("start-screen");
+let winScreen = document.getElementById("win-screen");
 let lossScreen = document.getElementById("loss-screen");
 let rewardScreem = document.getElementById("reward-screen");
 
 let game;
+let sound;
 
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
@@ -14,15 +15,15 @@ window.onload = () => {
   document.getElementById("loss-button").onclick = () => {
     lossScreen.style.display = "none";
     startGame();
-  }
+  };
 
   document.getElementById("win-button").onclick = () => {
     winScreen.style.display = "none";
     startGame();
-  }
-}
+  };
+};
 
 function startGame() {
-    game = new Game();
-    game.start();
+  game = new Game();
+  game.start();
 }

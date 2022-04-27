@@ -19,9 +19,9 @@ class Game {
 
   drawSquid() {
     this.imgSquid.src = "./docs/assets/imgs/My project (1).png";
-    this.ctx.drawImage(this.imgSquid, 348, 1, 150, 150);
+    this.ctx.drawImage(this.imgSquid, 300, 1, 220, 220);
     this.imgHouse.src = "./docs/assets/imgs/house.jgp.png";
-    this.ctx.drawImage(this.imgHouse, 205, -20, 100, 150);
+    this.ctx.drawImage(this.imgHouse, 195, -30, 120, 170);
   }
 
   start() {
@@ -44,9 +44,9 @@ class Game {
   countingSeconds() {
     let seconds = Math.floor(this.countTime / 60);
     console.log(seconds);
-    this.ctx.font = "20px sans-serif";
+    this.ctx.font = "30px sans-serif";
     this.ctx.fillStyle = "crimson";
-    this.ctx.fillText(`00:${seconds}`, 400, 130);
+    this.ctx.fillText(`00:${seconds}`, 375, 185);
   }
 
   update() {
