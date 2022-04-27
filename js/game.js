@@ -31,7 +31,7 @@ class Game {
 
   countingSeconds() {
     let seconds = Math.floor(this.countTime / 60);
-    this.ctx.font = '20px sans-serif';
+    this.ctx.font = '20px';
     this.ctx.fillStyle = 'white';
     this.ctx.fillText(`Seconds: ${seconds}`, 10, 30);
   }
@@ -40,14 +40,13 @@ class Game {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.glasses.draw();
     this.player.draw();
+    this.player.drawLifes();
     this.countingSeconds();
     this.checkBreakingGlass();
     this.checkGameOver();
     this.checkWin();
     this.countTime++;
   }
-
-  drawScores() {}
 
   checkBreakingGlass() {
     this.flatglasses.forEach((glass, i, arr) => {
@@ -63,7 +62,6 @@ class Game {
         this.player.y = 600;
       }
     });
-    console.log(this.brokenGlasses);
   }
 
   checkGameOver() {
@@ -91,12 +89,5 @@ class Game {
     let winScreen = document.getElementById('loss-screen');
     this.canvas.style.display = "none";
     winScreen.style.display = "flex";
-  }
-
-  timer() {
-    const startingMinutes = 2;
-    let time = startingMinutes * 60;
-
-    const countDownEl = document.getElementById("countdown");
   }
 }
