@@ -5,8 +5,13 @@ let rewardScreem = document.getElementById("reward-screen");
 
 let game;
 let sound;
+let music = new Audio("/docs/assets/sounds/Squid Game - Way Back Then.mp3");
+let spongeGame = ["./docs/assets/imgs/sponge.png", "./docs/assets/imgs/house.jgp.png", "./docs/assets/imgs/My project (1).png"];
+/* let squidGame = [player, objective, timer];
+let anotherOne = [player, objective, timer]; */
 
 window.onload = () => {
+  music.play();
   document.getElementById("start-button").onclick = () => {
     startScreen.style.display = "none";
     startGame();
@@ -24,6 +29,6 @@ window.onload = () => {
 };
 
 function startGame() {
-  game = new Game();
+  game = new Game(spongeGame);
   game.start();
 }

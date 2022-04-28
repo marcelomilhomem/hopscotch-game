@@ -1,5 +1,5 @@
 class Game {
-  constructor() {
+  constructor(imgArray) {
     this.canvas = document.getElementById("canvas");
     this.ctx = canvas.getContext("2d");
     this.x = 0;
@@ -14,24 +14,27 @@ class Game {
     this.countTime = 0;
     this.imgSquid = new Image();
     this.imgHouse = new Image();
+    this.imgSrs = imgArray;
     /* this.sound = new Audio(); */
   }
 
   drawSquid() {
-    this.imgSquid.src = "./docs/assets/imgs/My project (1).png";
+    this.imgSquid.src = this.imgSrs[2];
     this.ctx.drawImage(this.imgSquid, 300, 1, 220, 220);
-    this.imgHouse.src = "./docs/assets/imgs/house.jgp.png";
+    this.imgHouse.src = this.imgSrs[1];
     this.ctx.drawImage(this.imgHouse, 195, -30, 120, 170);
   }
 
   start() {
+    console.log(this.imgSrs);
     /* this.sound.src = "/docs/sounds/Squid Game - Pink Soldiers.mp3";
     this.sound.play(); */
     this.canvas.style.display = "flex";
-    this.player = new OhIlNam(this);
+    this.player = new SpongeBob(this, this.imgSrs[0]);
     this.control = new Controls(this);
     this.glasses = new Paths(this);
     this.glasses.arrayPath();
+    this.player.drawLifes();
     this.glasses.random();
     this.glasses.draw();
     this.flatglasses = this.glasses.path.flat();
