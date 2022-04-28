@@ -63,6 +63,19 @@ p {
   flex-direction: column;
 }
 
+h6 {
+  color: #d4f3d6;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+}
+
+#win-button {
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  background: none;
+  color: #d4f3d6;
+}
+
 #loss-screen {
   width: 500px;
   height: 700px;
@@ -74,7 +87,8 @@ p {
 }
 
 .invite-img {
-  max-height: 200px
+  max-height: 200px;
+  border-radius: 2%;
 }
 
 h3 {
@@ -84,7 +98,7 @@ h3 {
 }
 
 .start-green {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   border: none;
   color: white;
   padding: 20px;
@@ -96,7 +110,7 @@ h3 {
 }
 
 .start-red {
-  background-color: #B22222;
+  background-color: #b22222;
   border: none;
   color: white;
   padding: 20px;
@@ -114,7 +128,7 @@ h3 {
 }
 
 #loss-button {
-  background-color:#B22222;
+  background-color: #b22222;
   border: none;
   color: white;
   padding: 20px;

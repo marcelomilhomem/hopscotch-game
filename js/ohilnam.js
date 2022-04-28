@@ -5,7 +5,7 @@ class OhIlNam {
     this.y = 600;
     this.width = 40;
     this.height = 50;
-    this.lifes = 4;
+    this.lifes = 50;
     this.img = new Image();
     this.img2 = new Image();
   }
