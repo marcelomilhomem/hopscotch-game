@@ -22,7 +22,7 @@ class Game {
     this.imgSquid.src = this.imgSrs[2];
     this.ctx.drawImage(this.imgSquid, 300, 1, 220, 220);
     this.imgHouse.src = this.imgSrs[1];
-    this.ctx.drawImage(this.imgHouse, 220, 10, 80, 80);
+    this.ctx.drawImage(this.imgHouse, 195, -30, 120, 170);
   }
 
   start() {

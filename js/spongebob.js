@@ -4,7 +4,7 @@ class SpongeBob {
     this.x = 230;
     this.y = 600;
     this.width = 48;
-    this.height = 60;
+    this.height = 48;
     this.lifes = 5;
     this.img = new Image();
     this.img2 = new Image();
@@ -19,22 +19,22 @@ class SpongeBob {
     this.img2.src = this.imgSrs;
     switch (this.lifes) {
       case 5:
-        this.game.ctx.drawImage(this.img2, 20, 630, 48, 60);
-        this.game.ctx.drawImage(this.img2, 50, 630, 48, 60);
-        this.game.ctx.drawImage(this.img2, 80, 630, 48, 60);
-        this.game.ctx.drawImage(this.img2, 110, 630, 48, 60);
+        this.game.ctx.drawImage(this.img2, 20, 630, 48, 48);
+        this.game.ctx.drawImage(this.img2, 50, 630, 48, 48);
+        this.game.ctx.drawImage(this.img2, 80, 630, 48, 48);
+        this.game.ctx.drawImage(this.img2, 110, 630, 48, 48);
         break;
       case 4:
-        this.game.ctx.drawImage(this.img2, 20, 630, 48, 60);
-        this.game.ctx.drawImage(this.img2, 50, 630, 48, 60);
-        this.game.ctx.drawImage(this.img2, 80, 630, 48, 60);
+        this.game.ctx.drawImage(this.img2, 20, 630, 48, 48);
+        this.game.ctx.drawImage(this.img2, 50, 630, 48, 48);
+        this.game.ctx.drawImage(this.img2, 80, 630, 48, 48);
         break;
       case 3:
-        this.game.ctx.drawImage(this.img2, 20, 630, 48, 60);
-        this.game.ctx.drawImage(this.img2, 50, 630, 48, 60);
+        this.game.ctx.drawImage(this.img2, 20, 630, 48, 48);
+        this.game.ctx.drawImage(this.img2, 50, 630, 48, 48);
         break;
       case 2:
-        this.game.ctx.drawImage(this.img2, 20, 630, 48, 60);
+        this.game.ctx.drawImage(this.img2, 20, 630, 48, 48);
         break;
     }
   }
