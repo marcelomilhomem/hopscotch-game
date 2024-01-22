@@ -3,7 +3,7 @@
 body {
   margin: auto;
   text-align: center;
-  background-image: url(docs/assets/imgs/imgmoving.jpg);
+  background-color: black;
   background-size: 100vh;
 }
 
@@ -18,7 +18,7 @@ body {
   height: 100vh;
   align-items: center;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .rules {
@@ -50,7 +50,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 3rem;
 }
 
 #win-screen {
@@ -97,16 +97,64 @@ h3 {
   font-size: 20px;
 }
 
-.start-green {
-  background-color: #04aa6d;
+.buttonShadow--green:hover {
+  background-color: green;
+  box-shadow: 0 0 35px green;
+}
+
+.buttonWithShadow {
+  position: relative;
+  background-color: white;
   border: none;
   color: white;
-  padding: 20px;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 50%;
-  margin-bottom: 200px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  padding: 10px 30px;
+  transition: 0.5s;
 }
+.buttonWithShadow:hover {
+  letter-spacing: 0.25em;
+}
+
+.buttonWithShadow::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background-color: black;
+}
+
+.buttonWithShadow span {
+  position: relative;
+  z-index: 1;
+}
+
+.buttonWithShadow i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.buttonWithShadow i::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 10px;
+  height: 4px;
+  background: black;
+  transform: translateY(-50%) skew(325deg);
+  transition: 0.5s;
+}
+
+.buttonWithShadow:hover i::before {
+  width: 20px;
+  left: 20%;
+}
+
+
 
 .start-buttons {
   display: inline-block;
