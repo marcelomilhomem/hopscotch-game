@@ -8,45 +8,23 @@ body {
 }
 
 #canvas {
- /*  margin-top: 50px; */
-  box-shadow: LightGoldenrodYellow 0px 19px 38px, white 0px 15px 12px;
+  border: 1px solid white;
   display: none;
-}
-
-.main-div {
-  border: 3px solid LightGoldenrodYellow;
-  height: 100vh;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.rules {
-  /* background-color: black; */
-  text-align: center;
-  max-width: 400px;
-}
-
-.english {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-size: 20px;
-}
-
-.japonese {
-  color: white;
-  font-size: 20px;
-  font-family: "Montserrat", sans-serif;
-}
-
-p {
-  margin-top: 100px;
 }
 
 #start-screen {
   width: 500px;
   height: 700px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+#loss-screen {
+  width: 500px;
+  height: 700px;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -57,38 +35,26 @@ p {
   width: 500px;
   height: 700px;
   display: none;
-  justify-content: center;
-  align-items: center;
-  /* background-color: black; */
   flex-direction: column;
-}
-
-h6 {
-  color: #d4f3d6;
-  font-family: "Montserrat", sans-serif;
-  font-size: 30px;
-}
-
-#win-button {
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  background: none;
-  color: #d4f3d6;
-}
-
-#loss-screen {
-  width: 500px;
-  height: 700px;
-  display: none;
-  justify-content: center;
   align-items: center;
-  /* background-color: black; */
-  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.invite-img {
-  max-height: 200px;
-  border-radius: 2%;
+.main-div {
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin-top: 100px;
+}
+
+.lp-img {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
 }
 
 h3 {
@@ -98,8 +64,32 @@ h3 {
 }
 
 .buttonShadow--green:hover {
-  background-color: green;
-  box-shadow: 0 0 35px green;
+  background-color: #004225;
+  box-shadow: 0 0 35px #004225;
+}
+
+.buttonShadow--red:hover {
+  background-color: #F5F5DC;
+  box-shadow: 0 0 35px #F5F5DC;
+}
+
+.buttonShadow--orange:hover {
+  background-color: #FFB000;
+  box-shadow: 0 0 35px #FFB000;
+}
+
+.win-or-lose {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 0.25em;
+}
+
+.win-or-lose.red {
+  color: red;
+}
+
+.win-or-lose.green {
+  color: green;
 }
 
 .buttonWithShadow {
@@ -152,24 +142,4 @@ h3 {
 .buttonWithShadow:hover i::before {
   width: 20px;
   left: 20%;
-}
-
-
-
-.start-buttons {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-}
-
-#loss-button {
-  background-color: #b22222;
-  border: none;
-  color: white;
-  padding: 20px;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 50%;
-  margin-left: 20px;
-  margin-bottom: 200px;
 }

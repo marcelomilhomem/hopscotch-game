@@ -15,22 +15,14 @@ class Game {
     this.imgSquid = new Image();
     this.imgHouse = new Image();
     this.imgSrs = imgArray;
-    /* this.sound = new Audio(); */
   }
 
-  drawSquid() {
-    this.imgSquid.src = this.imgSrs[2];
-    this.ctx.drawImage(this.imgSquid, 300, 1, 220, 220);
-    this.imgHouse.src = this.imgSrs[1];
-    this.ctx.drawImage(this.imgHouse, 195, -30, 120, 170);
-  }
+  drawSquid() {}
 
   start() {
     console.log(this.imgSrs);
-    /* this.sound.src = "/docs/sounds/Squid Game - Pink Soldiers.mp3";
-    this.sound.play(); */
     this.canvas.style.display = "flex";
-    this.player = new SpongeBob(this, this.imgSrs[0]);
+    this.player = new Player(this, this.imgSrs);
     this.control = new Controls(this);
     this.glasses = new Paths(this);
     this.glasses.arrayPath();
@@ -49,7 +41,7 @@ class Game {
     console.log(seconds);
     this.ctx.font = "30px sans-serif";
     this.ctx.fillStyle = "crimson";
-    this.ctx.fillText(`00:${seconds}`, 375, 185);
+    this.ctx.fillText(`00:${seconds}`, 218, 80);
   }
 
   update() {
@@ -63,7 +55,6 @@ class Game {
     this.checkGameOver();
     this.checkWin();
     this.countTime++;
-    //this.restart();
   }
 
   checkBreakingGlass() {
@@ -73,13 +64,9 @@ class Game {
         glass.y === this.player.y &&
         glass.isBreakable
       ) {
-        //Make an array and check the future path includes in the brokenGlasses array;
-        //arr.splice(i, 1);
-
-        if(glass.color != "black") {
-          glass.color = "black"
+        if (glass.color != "black") {
+          glass.color = "black";
         }
-
 
         this.player.lifes--;
         this.player.x = 230;
@@ -89,9 +76,7 @@ class Game {
   }
 
   checkGameOver() {
-    if (this.player.lifes <= 0) {
-      this.stop();
-    } else if (Math.floor(this.countTime / 60) === 60) {
+    if (this.player.lifes <= 0 || Math.floor(this.countTime / 60) === 60) {
       this.stop();
     }
   }
@@ -109,13 +94,13 @@ class Game {
     let winScreen = document.getElementById("win-screen");
     this.canvas.style.display = "none";
     winScreen.style.display = "flex";
-    clearInterval(this.intervalId)
+    clearInterval(this.intervalId);
   }
 
   stop() {
     let lossScreen = document.getElementById("loss-screen");
     this.canvas.style.display = "none";
     lossScreen.style.display = "flex";
-    clearInterval(this.intervalId)
+    clearInterval(this.intervalId);
   }
 }

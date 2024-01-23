@@ -1,7 +1,6 @@
 class Paths {
   constructor(game) {
     this.game = game;
-    // this.color = "DimGrey";
     this.width = 50;
     this.height = 40;
     this.path = null;

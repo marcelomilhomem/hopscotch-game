@@ -17,67 +17,66 @@
   </head>
   <body>
     <div class="main-div">
-      <!-- <div class="rules japonese">
-        <h1>asdasd</h1>
-        <p>
-          秒があります。
-          <hr>
-          つのガラスの正方形が並んでいる橋を飛び越えてください。 つのガラスの正方形が強化されて勝利につながりますが、横の正方形はあなたが死ぬまで1つの命を失うことになります。
-        </p>
-        <p>キーボード</p>
-        <h1>← 左</h1><h1>↑ 上</h1><h1>→ 右
-        </h1>
-          https://cdnb.artstation.com/p/assets/images/images/043/719/103/large/jinsung-lim-68f9f4e6-8a23-401a-a866-37dc9a04bea1.jpg?1638096317
-      </div> -->
       <div id="start-screen">
-        <img
-          class="invite-img"
-          src="https://cdn.dribbble.com/users/6750733/screenshots/16620307/media/675de8d643ac3d956e1e646d7656c5c2.gif"
-          alt="invite-img-squid-game"
-        />
-        <div class="start-buttons">
-        <button type="button" class="buttonWithShadow buttonShadow--green" id="start-button"><span>PRESS START</span><i></i></button>
-      </div>
+        <div style="border: 1px solid white">
+          <img
+            class="lp-img"
+            src="./../Project_1/docs/assets/imgs/leejungjae-face.png"
+            alt="invite-img-squid-game"
+          />
+        </div>
+        <div>
+          <button
+            type="button"
+            class="buttonWithShadow buttonShadow--green"
+            id="start-button"
+          >
+            <span>PRESS START</span><i></i>
+          </button>
+          <button type="button" class="buttonWithShadow buttonShadow--orange">
+            <span>RULES</span><i></i>
+          </button>
+        </div>
       </div>
       <div id="win-screen">
-        <h6>* プレイヤー数 *</h6>
-        <h6>NUMBER OF PLAYERS</h6>
-        <h6>1</h6>
-        <h6>* 現金価格 *</h6>
-        <h6>CASH PRIZE</h6>
-        <h6>¥45,600,000,000</h6>
-        <hr>
-        <button type="button" id="win-button">Play Again</button>
+        <div class="win-or-lose green">WINNER</div>
+        <div style="border: 1px solid white">
+          <img
+            class="lp-img"
+            src="./../Project_1/docs/assets/imgs/leejungjae-win.png"
+            alt="invite-img-squid-game"
+          />
+        </div>
+        <button
+          type="button"
+          class="buttonWithShadow buttonShadow--red"
+          id="win-button"
+        >
+          <span>PLAY AGAIN</span><i></i>
+        </button>
       </div>
       <div id="loss-screen">
-        <h3>You lost</h3>
-        <button type="button" id="loss-button">Try again</button>
+        <div class="win-or-lose red">YOU LOSE</div>
+        <div style="border: 1px solid white">
+          <img
+            class="lp-img"
+            src="./../Project_1/docs/assets/imgs/leejungjae-gameover.png"
+            alt="invite-img-squid-game"
+          />
+        </div>
+        <button
+          type="button"
+          class="buttonWithShadow buttonShadow--red"
+          id="loss-button"
+        >
+          <span>PLAY AGAIN</span><i></i>
+        </button>
       </div>
       <div>
-        <canvas
-          id="canvas"
-          width="500"
-          height="700"
-          style="border: 1px solid LightGoldenrodYellow"
-        >
-          <p id="countdown">2:00</p>
-        </canvas>
+        <canvas id="canvas" width="500" height="700"> </canvas>
       </div>
-   <!--    <div class="rules english">
-        <h1>Hopscotch</h1>
-        <p>
-          READ
-          <hr>
-          You have 60seconds..
-          Jump your way through a bridge that has two glass squares
-          side by side. While one glass square is tempered and will lead you to victory,
-          the square beside will make you lose one life till your death. 
-        </p>
-        <p>Keyboard</p>
-        <h1>← LEFT</h1><h1>↑ UP</h1><h1>→ RIGHT</h1>
-      </div> -->
     </div>
-    <script src="js/spongebob.js"></script>
+    <script src="js/player.js"></script>
     <script src="js/glasses.js"></script>
     <script src="js/game.js"></script>
     <script src="js/control.js"></script>
