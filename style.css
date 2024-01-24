@@ -12,6 +12,10 @@ body {
   display: none;
 }
 
+#exit-button  {
+  display: none;
+}
+
 #start-screen {
   width: 500px;
   height: 700px;
@@ -101,6 +105,10 @@ body {
 .buttonShadow--orange:hover {
   background-color: #ffb000;
   box-shadow: 0 0 35px #ffb000;
+}
+
+.buttonExit {
+  background-color: #004225 !important;
 }
 
 .win-or-lose {

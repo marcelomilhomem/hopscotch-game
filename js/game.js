@@ -92,14 +92,21 @@ class Game {
 
   win() {
     let winScreen = document.getElementById("win-screen");
+    let exitButton = document.getElementById("exit-button");
+
     this.canvas.style.display = "none";
+    exitButton.style.display = "none";
     winScreen.style.display = "flex";
     clearInterval(this.intervalId);
   }
 
   stop() {
     let lossScreen = document.getElementById("loss-screen");
+    let exitButton = document.getElementById("exit-button");
+
     this.canvas.style.display = "none";
+    exitButton.style.display = "none";
+
     lossScreen.style.display = "flex";
     clearInterval(this.intervalId);
   }

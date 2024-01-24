@@ -1,5 +1,6 @@
 let startScreen = document.getElementById("start-screen");
 let ruleScreen = document.getElementById("rules-screen");
+let exitButton = document.getElementById("exit-button");
 let winScreen = document.getElementById("win-screen");
 let lossScreen = document.getElementById("loss-screen");
 
@@ -19,7 +20,6 @@ window.onload = () => {
 
   document.getElementById("rules-button").onclick = () => {
     ruleScreen.style.display = "flex";
-    console.log("hello");
   };
 
   document.getElementById("loss-button").onclick = () => {
@@ -34,6 +34,7 @@ window.onload = () => {
 };
 
 function startGame() {
+  exitButton.style.display = "block";
   game = new Game(gameImgs);
   game.start();
 }
