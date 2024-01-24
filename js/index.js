@@ -1,4 +1,5 @@
 let startScreen = document.getElementById("start-screen");
+let ruleScreen = document.getElementById("rules-screen");
 let winScreen = document.getElementById("win-screen");
 let lossScreen = document.getElementById("loss-screen");
 
@@ -12,7 +13,13 @@ let gameImgs = [
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startScreen.style.display = "none";
+    ruleScreen.style.display = "none";
     startGame();
+  };
+
+  document.getElementById("rules-button").onclick = () => {
+    ruleScreen.style.display = "flex";
+    console.log("hello");
   };
 
   document.getElementById("loss-button").onclick = () => {

@@ -17,8 +17,41 @@ body {
   height: 700px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1.5rem;
+}
+
+#rules-screen {
+  width: 500px;
+  height: auto;
+  gap: 1.5rem;
+  display: none;
+}
+
+.rules {
+  border: 1px solid white;
+}
+
+.rules h2 {
+  color: white;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px #ffb000;
+}
+
+.rules ul {
+  list-style-type: none;
+  padding: 1rem;
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rules p {
+  color: grey;
+  padding: 1rem;
 }
 
 #loss-screen {
@@ -36,6 +69,7 @@ body {
   height: 700px;
   display: none;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1.5rem;
 }
@@ -45,10 +79,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-p {
-  margin-top: 100px;
+  gap: 2rem;
 }
 
 .lp-img {
@@ -57,25 +88,19 @@ p {
   height: 100%;
 }
 
-h3 {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-size: 20px;
-}
-
 .buttonShadow--green:hover {
   background-color: #004225;
   box-shadow: 0 0 35px #004225;
 }
 
 .buttonShadow--red:hover {
-  background-color: #F5F5DC;
-  box-shadow: 0 0 35px #F5F5DC;
+  background-color: #f5f5dc;
+  box-shadow: 0 0 35px #f5f5dc;
 }
 
 .buttonShadow--orange:hover {
-  background-color: #FFB000;
-  box-shadow: 0 0 35px #FFB000;
+  background-color: #ffb000;
+  box-shadow: 0 0 35px #ffb000;
 }
 
 .win-or-lose {
