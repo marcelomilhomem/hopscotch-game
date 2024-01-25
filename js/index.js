@@ -3,6 +3,7 @@ let ruleScreen = document.getElementById("rules-screen");
 let exitButton = document.getElementById("exit-button");
 let winScreen = document.getElementById("win-screen");
 let lossScreen = document.getElementById("loss-screen");
+let canvas = document.getElementById("canvas");
 
 let game;
 let gameImgs = [
@@ -18,8 +19,18 @@ window.onload = () => {
     startGame();
   };
 
+  document.getElementById("exit-button").onclick = () => {
+    canvas.style.display = "none";
+    startScreen.style.display = "flex";
+    exitButton.style.display = "none";
+  };
+
   document.getElementById("rules-button").onclick = () => {
-    ruleScreen.style.display = "flex";
+    if (ruleScreen.style.display === "none") {
+      ruleScreen.style.display = "flex";
+    } else {
+      ruleScreen.style.display = "none";
+    }
   };
 
   document.getElementById("loss-button").onclick = () => {
