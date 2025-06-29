@@ -7,8 +7,8 @@ let canvas = document.getElementById("canvas");
 
 let game;
 let imageSources = {
-  playerImage: "/docs/assets/imgs/lee-jung-jae.png",
-  heartImage: "/docs/assets/imgs/minecraft-full-heart.png",
+  playerImage: "./docs/assets/imgs/lee-jung-jae.png",
+  heartImage: "./docs/assets/imgs/minecraft-full-heart.png",
 };
 
 window.onload = () => {
