@@ -6,11 +6,10 @@ let lossScreen = document.getElementById("loss-screen");
 let canvas = document.getElementById("canvas");
 
 let game;
-let gameImgs = [
-  "./docs/assets/imgs/lee-jung-jae.png",
-  "./docs/assets/imgs/My project (1).png",
-  "./docs/assets/imgs/minecraft-full-heart.png",
-];
+let imageSources = {
+  playerImage: "/docs/assets/imgs/lee-jung-jae.png",
+  heartImage: "/docs/assets/imgs/minecraft-full-heart.png",
+};
 
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
@@ -46,6 +45,6 @@ window.onload = () => {
 
 function startGame() {
   exitButton.style.display = "block";
-  game = new Game(gameImgs);
+  game = new Game(imageSources);
   game.start();
 }

@@ -1,4 +1,4 @@
-class Paths {
+class PathManager {
   constructor(game) {
     this.game = game;
     this.width = 50;
@@ -58,11 +58,11 @@ class Paths {
       pair[randomNumber].isBreakable = true;
     });
 
-    this.game.flatglasses = this.path.flat();
+    this.game.flatGlasses = this.path.flat();
   }
 
-  draw() {
-    this.game.flatglasses.forEach((glass) => {
+  drawPath() {
+    this.game.flatGlasses.forEach((glass) => {
       this.game.ctx.fillStyle = glass.color;
       this.game.ctx.fillRect(glass.x, glass.y, 50, 40);
     });
