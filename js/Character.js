@@ -6,6 +6,10 @@ class Character {
     this.width = 60;
     this.height = 60;
     this.lives = 5;
+
+    this.validXPositions = [200, 230, 260];
+    this.minY = 50;
+    this.maxY = 600;
   }
 
   resetPosition() {
@@ -13,31 +17,39 @@ class Character {
     this.y = 600;
   }
 
-  moveLeft() {
-    this.x -= 60;
-    this.y -= 50;
+  isValidPosition(x, y) {
+    return this.validXPositions.includes(x) && y >= this.minY && y <= this.maxY;
   }
 
-  moveRight() {
-    this.x += 60;
-    this.y -= 50;
-  }
+  move(direction) {
+    let newX = this.x;
+    let newY = this.y;
 
-  beginLeft() {
-    this.x -= 30;
-    this.y -= 50;
-  }
+    switch (direction) {
+      case DIRECTIONS.LEFT:
+        if (this.x === 260) {
+          newX = 200;
+        } else if (this.x === 230) {
+          newX = 200;
+        }
+        newY -= 50;
+        break;
+      case DIRECTIONS.RIGHT:
+        if (this.x === 200) {
+          newX = 260;
+        } else if (this.x === 230) {
+          newX = 260;
+        }
+        newY -= 50;
+        break;
+      case DIRECTIONS.UP:
+        newY -= 50;
+        break;
+    }
 
-  beginRight() {
-    this.x += 30;
-    this.y -= 50;
-  }
-
-  moveUpLeft() {
-    this.y -= 50;
-  }
-
-  moveUpRight() {
-    this.y -= 50;
+    if (this.isValidPosition(newX, newY)) {
+      this.x = newX;
+      this.y = newY;
+    }
   }
 }

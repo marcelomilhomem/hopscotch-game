@@ -1,6 +1,6 @@
 class Game {
   constructor(imageSources) {
-    this.canvas = document.getElementById("canvas");
+    this.canvas = document.getElementById("game-canvas");
     this.ctx = this.canvas.getContext("2d");
     this.width = 500;
     this.height = 700;
@@ -18,7 +18,7 @@ class Game {
   }
 
   start() {
-    this.canvas.style.display = "flex";
+    this.canvas.classList.remove("hidden");
 
     // Init
     this.character = new Character(this);
@@ -91,16 +91,16 @@ class Game {
   }
 
   win() {
-    document.getElementById("canvas").style.display = "none";
-    document.getElementById("exit-button").style.display = "none";
-    document.getElementById("win-screen").style.display = "flex";
+    this.canvas.classList.add("hidden");
+    document.getElementById("btn-exit").classList.add("hidden");
+    document.getElementById("screen-win").classList.remove("hidden");
     clearInterval(this.intervalId);
   }
 
   stop() {
-    document.getElementById("canvas").style.display = "none";
-    document.getElementById("exit-button").style.display = "none";
-    document.getElementById("loss-screen").style.display = "flex";
+    this.canvas.classList.add("hidden");
+    document.getElementById("btn-exit").classList.add("hidden");
+    document.getElementById("screen-loss").classList.remove("hidden");
     clearInterval(this.intervalId);
   }
 }
