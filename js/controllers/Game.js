@@ -1,3 +1,11 @@
+const GAME_STATE = Object.freeze({
+  IDLE: "idle", 
+  PLAYING: "playing",
+  WON: "won",
+  LOST: "lost",
+  STOPPED: "stopped", 
+});
+
 class Game {
   constructor(imageSources) {
     this.canvas = document.getElementById("game-canvas");
@@ -13,6 +21,7 @@ class Game {
     this.pathManager = null;
     this.flatGlasses = null;
 
+    this.state = GAME_STATE.IDLE;
     this.intervalId = null;
     this.countTime = 0;
   }
@@ -31,6 +40,7 @@ class Game {
 
     this.inputHandler.listen();
 
+    this.state = GAME_STATE.PLAYING;
     this.intervalId = setInterval(() => this.update(), 1000 / 60);
   }
 
@@ -48,7 +58,7 @@ class Game {
   }
 
   handleMove(direction) {
-    if (this.intervalId === null) return;
+    if (this.state !== GAME_STATE.PLAYING) return;
 
     this.character.move(direction);
     this.checkBreakingGlass();
@@ -98,6 +108,8 @@ class Game {
   }
 
   win() {
+    if (this.state !== GAME_STATE.PLAYING) return;
+    this.state = GAME_STATE.WON;
     this.destroy();
     this.canvas.classList.add("hidden");
     document.getElementById("btn-exit").classList.add("hidden");
@@ -105,6 +117,8 @@ class Game {
   }
 
   stop() {
+    if (this.state !== GAME_STATE.PLAYING) return;
+    this.state = GAME_STATE.LOST;
     this.destroy();
     this.canvas.classList.add("hidden");
     document.getElementById("btn-exit").classList.add("hidden");
@@ -112,6 +126,9 @@ class Game {
   }
 
   destroy() {
+    if (this.state === GAME_STATE.PLAYING) {
+      this.state = GAME_STATE.STOPPED;
+    }
     clearInterval(this.intervalId);
     this.intervalId = null;
     if (this.inputHandler) this.inputHandler.destroy();
