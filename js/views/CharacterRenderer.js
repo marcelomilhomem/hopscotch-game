@@ -1,4 +1,4 @@
-class CharacterRenderer {
+export class CharacterRenderer {
   constructor(game, character, images) {
     this.game = game;
     this.character = character;

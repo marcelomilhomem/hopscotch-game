@@ -1,4 +1,4 @@
-class PathManager {
+export class PathManager {
   constructor(game) {
     this.game = game;
     this.width = 50;

@@ -1,4 +1,6 @@
-class Character {
+import { DIRECTIONS } from "../constants/Directions.js";
+
+export class Character {
   constructor(game) {
     this.game = game;
     this.x = 230;

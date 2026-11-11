@@ -1,4 +1,9 @@
-const GAME_STATE = Object.freeze({
+import { InputHandler } from "./InputHandler.js";
+import { Character } from "../models/Character.js";
+import { PathManager } from "../models/PathManager.js";
+import { CharacterRenderer } from "../views/CharacterRenderer.js";
+
+const GAME_STATE =Object.freeze({
   IDLE: "idle", 
   PLAYING: "playing",
   WON: "won",
@@ -9,7 +14,7 @@ const GAME_STATE = Object.freeze({
 const TIME_LIMIT_MS = 60 * 1000;
 const MAX_FRAME_MS = 100;
 
-class Game {
+export class Game {
   constructor(imageSources) {
     this.canvas = document.getElementById("game-canvas");
     this.ctx = this.canvas.getContext("2d");

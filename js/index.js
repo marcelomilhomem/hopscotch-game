@@ -1,4 +1,6 @@
-const screenStart = document.getElementById("screen-start");
+import { Game } from "./controllers/Game.js";
+
+const screenStart =document.getElementById("screen-start");
 const screenRules = document.getElementById("screen-rules");
 const screenWin = document.getElementById("screen-win");
 const screenLoss = document.getElementById("screen-loss");

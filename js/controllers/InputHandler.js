@@ -1,4 +1,6 @@
-class InputHandler {
+import { DIRECTIONS } from "../constants/Directions.js";
+
+export class InputHandler {
   constructor(game) {
     this.game = game;
     this.onKeyDown = this.onKeyDown.bind(this);
