@@ -17,6 +17,10 @@ class Character {
     this.y = 600;
   }
 
+  isAtStart() {
+    return this.x === 230 && this.y === 600;
+  }
+
   isValidPosition(x, y) {
     return this.validXPositions.includes(x) && y >= this.minY && y <= this.maxY;
   }
@@ -43,6 +47,8 @@ class Character {
         newY -= 50;
         break;
       case DIRECTIONS.UP:
+        // The first move must pick a tile, so Up is ignored at the start
+        if (this.isAtStart()) return;
         newY -= 50;
         break;
     }
