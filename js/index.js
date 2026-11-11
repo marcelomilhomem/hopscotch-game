@@ -19,6 +19,7 @@ window.onload = () => {
   };
 
   document.getElementById("btn-exit").onclick = () => {
+    if (game) game.destroy();
     gameCanvas.classList.add("hidden");
     screenStart.classList.remove("hidden");
     exitBtn.classList.add("hidden");
@@ -42,6 +43,7 @@ window.onload = () => {
 function startGame() {
   exitBtn.classList.remove("hidden");
   gameCanvas.classList.remove("hidden");
+  if (game) game.destroy();
   game = new Game(imageSources);
   game.start();
 }

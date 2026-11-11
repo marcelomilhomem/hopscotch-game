@@ -16,7 +16,7 @@ class CharacterRenderer {
 
   drawLives() {
     const lives = this.character.lives;
-    for (let i = 0; i < lives - 1; i++) {
+    for (let i = 0; i < lives; i++) {
       this.game.ctx.drawImage(this.heartImage, 20 + i * 30, 630, 48, 48);
     }
   }

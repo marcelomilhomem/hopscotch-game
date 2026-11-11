@@ -1,22 +1,28 @@
 class InputHandler {
   constructor(game) {
     this.game = game;
-    this.character = this.game.character;
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  onKeyDown(e) {
+    switch (e.code) {
+      case "ArrowLeft":
+        this.game.handleMove(DIRECTIONS.LEFT);
+        break;
+      case "ArrowRight":
+        this.game.handleMove(DIRECTIONS.RIGHT);
+        break;
+      case "ArrowUp":
+        this.game.handleMove(DIRECTIONS.UP);
+        break;
+    }
   }
 
   listen() {
-    window.addEventListener("keydown", (e) => {
-      switch (e.code) {
-        case "ArrowLeft":
-          this.character.move(DIRECTIONS.LEFT);
-          break;
-        case "ArrowRight":
-          this.character.move(DIRECTIONS.RIGHT);
-          break;
-        case "ArrowUp":
-          this.character.move(DIRECTIONS.UP);
-          break;
-      }
-    });
+    window.addEventListener("keydown", this.onKeyDown);
+  }
+
+  destroy() {
+    window.removeEventListener("keydown", this.onKeyDown);
   }
 }

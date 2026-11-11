@@ -28,7 +28,6 @@ class Game {
 
     this.pathManager.arrayPath();
     this.pathManager.random();
-    this.allTiles = this.pathManager.path.flat();
 
     this.inputHandler.listen();
 
@@ -43,64 +42,78 @@ class Game {
     this.characterRenderer.drawLives();
     this.countingSeconds();
 
-    this.checkBreakingGlass();
-    this.checkGameOver();
-    this.checkWin();
+    this.checkTimeUp();
 
     this.countTime++;
   }
 
+  handleMove(direction) {
+    if (this.intervalId === null) return;
+
+    this.character.move(direction);
+    this.checkBreakingGlass();
+    this.checkGameOver();
+    this.checkWin();
+  }
+
   countingSeconds() {
-    let seconds = Math.floor(this.countTime / 60);
+    const total = Math.floor(this.countTime / 60);
+    const minutes = String(Math.floor(total / 60)).padStart(2, "0");
+    const seconds = String(total % 60).padStart(2, "0");
     this.ctx.font = "30px sans-serif";
     this.ctx.fillStyle = "crimson";
-    this.ctx.fillText(`00:${seconds}`, 218, 80);
+    this.ctx.fillText(`${minutes}:${seconds}`, 218, 80);
   }
 
   checkBreakingGlass() {
-    this.flatGlasses.forEach((glass) => {
-      if (
-        glass.x === this.character.x &&
-        glass.y === this.character.y &&
-        glass.isBreakable
-      ) {
-        if (glass.color !== "black") {
-          glass.color = "black";
-        }
+    const glass = this.flatGlasses.find(
+      (g) => g.x === this.character.x && g.y === this.character.y && g.isBreakable
+    );
+    if (!glass) return;
 
-        this.character.lives--;
-        this.character.x = 230;
-        this.character.y = 600;
-      }
-    });
+    glass.color = "black";
+    this.character.lives--;
+    this.character.resetPosition();
+  }
+
+  checkTimeUp() {
+    if (Math.floor(this.countTime / 60) >= 60) {
+      this.stop();
+    }
   }
 
   checkGameOver() {
-    if (this.character.lives <= 0 || Math.floor(this.countTime / 60) === 60) {
+    if (this.character.lives <= 0) {
       this.stop();
     }
   }
 
   checkWin() {
-    if (
-      (this.character.x === 200 && this.character.y === 50) ||
-      (this.character.x === 260 && this.character.y === 50)
-    ) {
+    const { x, y, minY } = this.character;
+    const onGoalRow = y === minY;
+    const onGlassLane = this.pathManager.path[0].some((tile) => tile.x === x);
+    if (onGoalRow && onGlassLane) {
       this.win();
     }
   }
 
   win() {
+    this.destroy();
     this.canvas.classList.add("hidden");
     document.getElementById("btn-exit").classList.add("hidden");
     document.getElementById("screen-win").classList.remove("hidden");
-    clearInterval(this.intervalId);
   }
 
   stop() {
+    this.destroy();
     this.canvas.classList.add("hidden");
     document.getElementById("btn-exit").classList.add("hidden");
     document.getElementById("screen-loss").classList.remove("hidden");
+  }
+
+  destroy() {
     clearInterval(this.intervalId);
+    this.intervalId = null;
+    if (this.inputHandler) this.inputHandler.destroy();
   }
 }

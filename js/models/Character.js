@@ -5,7 +5,7 @@ class Character {
     this.y = 600;
     this.width = 60;
     this.height = 60;
-    this.lives = 5;
+    this.lives = 4;
 
     this.validXPositions = [200, 230, 260];
     this.minY = 50;
