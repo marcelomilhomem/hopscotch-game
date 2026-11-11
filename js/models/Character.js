@@ -26,32 +26,15 @@ class Character {
   }
 
   move(direction) {
-    let newX = this.x;
-    let newY = this.y;
+    // The first move must pick a tile, so Up is ignored at the start
+    if (direction === DIRECTIONS.UP && this.isAtStart()) return;
 
-    switch (direction) {
-      case DIRECTIONS.LEFT:
-        if (this.x === 260) {
-          newX = 200;
-        } else if (this.x === 230) {
-          newX = 200;
-        }
-        newY -= 50;
-        break;
-      case DIRECTIONS.RIGHT:
-        if (this.x === 200) {
-          newX = 260;
-        } else if (this.x === 230) {
-          newX = 260;
-        }
-        newY -= 50;
-        break;
-      case DIRECTIONS.UP:
-        // The first move must pick a tile, so Up is ignored at the start
-        if (this.isAtStart()) return;
-        newY -= 50;
-        break;
-    }
+    // Left and Right jump to that column, Up stays in the current one.
+    // Every move goes one row forward.
+    let newX = this.x;
+    if (direction === DIRECTIONS.LEFT) newX = 200;
+    if (direction === DIRECTIONS.RIGHT) newX = 260;
+    const newY = this.y - 50;
 
     if (this.isValidPosition(newX, newY)) {
       this.x = newX;
