@@ -2,6 +2,7 @@ import { InputHandler } from "./InputHandler.js";
 import { Character } from "../models/Character.js";
 import { PathManager } from "../models/PathManager.js";
 import { CharacterRenderer } from "../views/CharacterRenderer.js";
+import { HudRenderer } from "../views/HudRenderer.js";
 
 const GAME_STATE =Object.freeze({
   IDLE: "idle", 
@@ -41,6 +42,7 @@ export class Game {
     // Init
     this.character = new Character(this);
     this.characterRenderer = new CharacterRenderer(this, this.character, this.imageSources);
+    this.hud = new HudRenderer(this.ctx);
     this.inputHandler = new InputHandler(this);
     this.pathManager = new PathManager(this);
 
@@ -65,7 +67,7 @@ export class Game {
     this.pathManager.drawPath();
     this.characterRenderer.drawCharacter();
     this.characterRenderer.drawLives();
-    this.countingSeconds();
+    this.hud.drawTimer(this.elapsedMs);
 
     this.checkTimeUp();
 
@@ -81,15 +83,6 @@ export class Game {
     this.checkBreakingGlass();
     this.checkGameOver();
     this.checkWin();
-  }
-
-  countingSeconds() {
-    const total = Math.floor(this.elapsedMs / 1000);
-    const minutes = String(Math.floor(total / 60)).padStart(2, "0");
-    const seconds = String(total % 60).padStart(2, "0");
-    this.ctx.font = "30px sans-serif";
-    this.ctx.fillStyle = "crimson";
-    this.ctx.fillText(`${minutes}:${seconds}`, 218, 80);
   }
 
   checkBreakingGlass() {
