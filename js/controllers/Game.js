@@ -6,6 +6,9 @@ const GAME_STATE = Object.freeze({
   STOPPED: "stopped", 
 });
 
+const TIME_LIMIT_MS = 60 * 1000;
+const MAX_FRAME_MS = 100;
+
 class Game {
   constructor(imageSources) {
     this.canvas = document.getElementById("game-canvas");
@@ -22,8 +25,9 @@ class Game {
     this.flatGlasses = null;
 
     this.state = GAME_STATE.IDLE;
-    this.intervalId = null;
-    this.countTime = 0;
+    this.frameId = null;
+    this.lastTimestamp = null;
+    this.elapsedMs = 0;
   }
 
   start() {
@@ -41,10 +45,16 @@ class Game {
     this.inputHandler.listen();
 
     this.state = GAME_STATE.PLAYING;
-    this.intervalId = setInterval(() => this.update(), 1000 / 60);
+    this.frameId = requestAnimationFrame((t) => this.update(t));
   }
 
-  update() {
+  update(timestamp) {
+    if (this.state !== GAME_STATE.PLAYING) return;
+
+    const delta = this.lastTimestamp === null ? 0 : timestamp - this.lastTimestamp;
+    this.lastTimestamp = timestamp;
+    this.elapsedMs += Math.min(delta, MAX_FRAME_MS);
+
     this.ctx.clearRect(0, 0, this.width, this.height);
 
     this.pathManager.drawPath();
@@ -54,7 +64,9 @@ class Game {
 
     this.checkTimeUp();
 
-    this.countTime++;
+    if (this.state === GAME_STATE.PLAYING) {
+      this.frameId = requestAnimationFrame((t) => this.update(t));
+    }
   }
 
   handleMove(direction) {
@@ -67,7 +79,7 @@ class Game {
   }
 
   countingSeconds() {
-    const total = Math.floor(this.countTime / 60);
+    const total = Math.floor(this.elapsedMs / 1000);
     const minutes = String(Math.floor(total / 60)).padStart(2, "0");
     const seconds = String(total % 60).padStart(2, "0");
     this.ctx.font = "30px sans-serif";
@@ -87,7 +99,7 @@ class Game {
   }
 
   checkTimeUp() {
-    if (Math.floor(this.countTime / 60) >= 60) {
+    if (this.elapsedMs >= TIME_LIMIT_MS) {
       this.stop();
     }
   }
@@ -129,8 +141,8 @@ class Game {
     if (this.state === GAME_STATE.PLAYING) {
       this.state = GAME_STATE.STOPPED;
     }
-    clearInterval(this.intervalId);
-    this.intervalId = null;
+    cancelAnimationFrame(this.frameId);
+    this.frameId = null;
     if (this.inputHandler) this.inputHandler.destroy();
   }
 }
