@@ -26,11 +26,8 @@ class Character {
   }
 
   move(direction) {
-    // The first move must pick a tile, so Up is ignored at the start
     if (direction === DIRECTIONS.UP && this.isAtStart()) return;
 
-    // Left and Right jump to that column, Up stays in the current one.
-    // Every move goes one row forward.
     let newX = this.x;
     if (direction === DIRECTIONS.LEFT) newX = 200;
     if (direction === DIRECTIONS.RIGHT) newX = 260;
